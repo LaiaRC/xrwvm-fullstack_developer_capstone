@@ -1,22 +1,22 @@
+import js from "@eslint/js";
+import globals from "globals";
+import { defineConfig } from "eslint/config";
+
 export default defineConfig([
-    {
-      ignores: ["**/node_modules/**"],
+  {
+    files: ["**/*.{js,mjs,cjs,jsx}"],
+    rules: {
+      "no-unused-vars": "off", // disables unused variable errors
     },
-    {
-      files: ["**/*.{js,mjs,cjs,jsx}"],
-      rules: {
-        "no-unused-vars": "off",
+    plugins: { js },
+    extends: ["js/recommended"],
+    languageOptions: {
+      globals: {
+        ...globals.browser,
+        ...globals.node,
       },
-      plugins: { js },
-      extends: ["js/recommended"],
-      languageOptions: {
-        globals: {
-          ...globals.browser,
-          ...globals.node,
-        },
-        ecmaVersion: "latest"
-      },
+      ecmaVersion: "latest",
     },
-    pluginReact.configs.flat.recommended,
-  ]);
-  
+    ignores: ["node_modules/**"], // ignore node_modules
+  },
+]);
