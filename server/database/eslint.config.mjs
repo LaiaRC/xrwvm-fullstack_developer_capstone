@@ -1,6 +1,6 @@
 export default defineConfig([
     {
-      ignores: ["node_modules/**"], // top-level ignore
+      ignores: ["**/node_modules/**"],
     },
     {
       files: ["**/*.{js,mjs,cjs,jsx}"],
